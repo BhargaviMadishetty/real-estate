@@ -36,7 +36,7 @@ const BasicInfo = (props) => {
                 console.log(key, value);
               }
                 console.log(props.property);
-            fetch("http://localhost:8080/basicinfo",
+            fetch("https://real-estate-backend-544m.onrender.com/basicinfo",
                 {
                     method: 'POST',
                     body: formData
@@ -51,7 +51,7 @@ const BasicInfo = (props) => {
     }
     const dispalybasic=()=>{
         
-            fetch(`http://localhost:8080/basicinfo/${localStorage.getItem('objid')}`, {
+            fetch(`https://real-estate-backend-544m.onrender.com/basicinfo/${localStorage.getItem('objid')}`, {
                 method: 'GET'
             }).then((res) => res.json())
                 .then((data) => {

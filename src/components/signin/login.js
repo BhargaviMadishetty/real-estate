@@ -16,7 +16,7 @@ const Login = () => {
     },[])
     function loginFunc(e) {
         e.preventDefault()
-        fetch(`http://localhost:8080/login`, {
+        fetch(`https://real-estate-backend-544m.onrender.com/login`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

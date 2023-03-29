@@ -11,7 +11,7 @@ const PropertyDetails = (props) => {
     let blueColorUrl = window.location.href;
     const [areaUnit,setareaUnit]=useState("");
     const [noOfBhk, setnoOfBhk] = useState(0);
-    const [noOfFloor, setnoOfFloor] = useState(12);
+    const [noOfFloor, setnoOfFloor] = useState("");
     const [attached, setattached] = useState("");
     const [westernToilet, setwesternToilet] = useState("");
     const [furnished, setfurnished] = useState("");
@@ -49,12 +49,12 @@ const PropertyDetails = (props) => {
         formData.append("totalArea",totalArea)
         
         //formData.append('PPID',PPID)
-
+        
         for (const [key, value] of formData.entries()) {
             console.log(key, value);
           }
             console.log(props.property);
-        fetch("http://localhost:8080/propertydetails",
+        fetch("https://real-estate-backend-544m.onrender.com/propertydetails",
             {
                 method: 'PATCH',
                 body: formData
@@ -62,12 +62,12 @@ const PropertyDetails = (props) => {
             }).then(res=>res.json()).then(data=>{
                 
             }).catch(err=>{
-                console.log("error",err);
+                console.log("error",err.message);
             });
 }
 const dispalyproperty=()=>{
         
-    fetch(`http://localhost:8080/propertydetails/${localStorage.getItem('objid')}`, {
+    fetch(`https://real-estate-backend-544m.onrender.com/propertydetails/${localStorage.getItem('objid')}`, {
         method: 'GET'
     }).then((res) => res.json())
         .then((data) => {
@@ -195,7 +195,7 @@ const dispalyproperty=()=>{
                     </section>
 
                     <section className="inputSection1"> <label className="WideLabel" htmlFor="Electricity">Electricity</label>
-                        <input className="WideInput" type="number" id="Electricity" name="Electricity" value={electricity}
+                        <input className="WideInput" type="text" id="Electricity" name="Electricity" value={electricity}
                             placeholder="Electricity" onChange={(e) => { setelectricity(e.target.value) }}/></section>
                 </section>
             </form>

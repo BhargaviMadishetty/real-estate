@@ -9,12 +9,7 @@ const Home = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
-    // useEffect(() => {
-    //     if (!token) {
-    //         navigate("/pagel")
-    //     }
-    //     console.log(token)
-    // }, [])
+    
     return (
         <div className="home">
             <div className="side-nav">

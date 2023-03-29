@@ -27,25 +27,26 @@ const GeneralInfo = (props) => {
         formData.append("ppdPackage", ppdPackage);
         formData.append("saleType", saleType);
         //formData.append('PPID',PPID)
-
+        console.log(formData);
         for (const [key, value] of formData.entries()) {
             console.log(key, value);
           }
             console.log(props.property);
-        fetch("http://localhost:8080/generalinfo",
+        fetch("https://real-estate-backend-544m.onrender.com/generalinfo",
             {
                 method: 'PATCH',
                 body: formData
             
             }).then(res=>res.json()).then(data=>{
                 
+                
             }).catch(err=>{
-                console.log("error",err);
+                console.log("error",err.message);
             });
 }
 const dispalygeneral=()=>{
         
-    fetch(`http://localhost:8080/generalinfo/${localStorage.getItem('objid')}`, {
+    fetch(`https://real-estate-backend-544m.onrender.com/generalinfo/${localStorage.getItem('objid')}`, {
         method: 'GET'
     }).then((res) => res.json())
         .then((data) => {

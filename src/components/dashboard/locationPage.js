@@ -24,34 +24,7 @@ const LocationInfo = (props) => {
     const [longitude, setlongitude] = useState(0);
     
     
-    // const uploadPost = (e) => {
 
-    //     const formData = new FormData();
-    //     formData.append("property", props.property);
-    //     formData.append("contact", props.contact);
-    //     formData.append("area", props.area);
-    //     formData.append("views", Views);
-    //     formData.append("daysleft",Daysleft)
-    //     formData.append("status",sold)
-    //     formData.append('PPID',PPID)
-
-    //     for (const [key, value] of formData.entries()) {
-    //         console.log(key, value);
-    //       }
-    //         console.log(props.property);
-    //     fetch("http://localhost:8080/pagelist",
-    //         {
-    //             method: 'POST',
-    //             body: formData
-            
-    //         }).then(res=>res.json()).then(data=>{
-    //             navigate('/home')
-    //         }).catch(err=>{
-    //             console.log("error",err);
-    //         });
-
-
-    // }
     const insertpage3 =()=>{
         const formData = new FormData();
 
@@ -74,7 +47,7 @@ const LocationInfo = (props) => {
             console.log(key, value);
           }
             console.log(props.property);
-        fetch("http://localhost:8080/locationinfo",
+        fetch("https://real-estate-backend-544m.onrender.com/locationinfo",
             {
                 method: 'PATCH',
                 body: formData
