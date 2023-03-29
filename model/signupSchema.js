@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const signupSchema = mongoose.Schema({
     MailID:{type:String , required:true} ,
@@ -7,5 +7,5 @@ const signupSchema = mongoose.Schema({
 })
 
 
-const signup = mongoose.model("signup",signupSchema)
-module.exports = signup
+const signup = mongoose.model("signup",signupSchema);
+module.exports = signup;

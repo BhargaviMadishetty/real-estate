@@ -1,21 +1,20 @@
-const express = require('express')
-const router = require('express').Router()
-const bcrypt = require('bcrypt')
+const express = require('express');
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const User = require("../model/signupSchema");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const secret = "realEstate";
 
-const secret = "realEstate"
-
-router.use(express.json())
-router.use(express.urlencoded())
+router.use(express.json());
+router.use(express.urlencoded());
 
 router.post('/login', async (req, res) => {
 
     try {
-        const email= req.body.id
-        const passwords = req.body.password
+        const email = req.body.id;
+        const passwords = req.body.password;
         const findQueryinDB = await User.findOne({ MailID: email });
-        console.log(findQueryinDB)
+        console.log(findQueryinDB);
 
         if (!findQueryinDB) {
             return res.status(404).json({
@@ -41,7 +40,7 @@ router.post('/login', async (req, res) => {
                 else {
                     //after authentication we have to authorize the user by sending token to user
                     const token = jwt.sign({
-                        // 60 hours from the current time.
+                        // token expires in 60 hours from the creation time
                         exp: Math.floor(Date.now() / 1000) + (60 * 60 * 60 * 60),
                         findQueryinDB: findQueryinDB._id
                     }, secret);
@@ -55,9 +54,8 @@ router.post('/login', async (req, res) => {
             })
 
         }
-
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 })
 

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const signinSchema = mongoose.Schema({
     userID:{type:String , required:true} ,
@@ -7,5 +7,5 @@ const signinSchema = mongoose.Schema({
 })
 
 
-const signin = mongoose.model("signin",signinSchema)
-module.exports = signin
+const signin = mongoose.model("signin",signinSchema);
+module.exports = signin;
